@@ -49,7 +49,7 @@ pipeline {
             sh 'docker image prune -f'
         }
         success {
-            echo '✅ NALUPAWS desplegado correctamente en el puerto 8080.'
+            echo '✅ NALUPAWS desplegado correctamente en la red cicd (Nginx Proxy Manager).'
         }
         failure {
             echo '❌ El despliegue de NALUPAWS ha fallado. Revisa los logs.'
