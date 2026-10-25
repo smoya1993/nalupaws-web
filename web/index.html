@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NALUPAWS · Premium Accessories for Dogs & Cats</title>
+  <meta name="description" content="NALUPAWS: Over 4 years of curated excellence in pet accessories. Orthopedic beds, ergonomic bowls, insulated outdoor houses, raincoats, and cat scratchers. Custom email consultations and orders." />
+  <meta name="theme-color" content="#377180" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+
+  <!-- Google Fonts: Fredoka & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#fdf8ef',
+              creamDark: '#f7edda',
+              teal: '#377180',
+              tealHover: '#2a5864',
+              tealLight: '#e4f0f2',
+              coral: '#e96d4e',
+              coralHover: '#d55839',
+              yellow: '#f4b248',
+              yellowLight: '#fdf2db',
+              dark: '#1e373e'
+            }
+          },
+          fontFamily: {
+            display: ['Fredoka', 'system-ui', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 12px 36px -10px rgba(55, 113, 128, 0.16)',
+            card: '0 8px 24px -6px rgba(55, 113, 128, 0.12)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .filter-btn.active {
+      background-color: #377180;
+      color: #ffffff;
+      border-color: #377180;
+      box-shadow: 0 4px 14px rgba(55, 113, 128, 0.3);
+    }
+    .card-enter {
+      animation: fadeUp 0.4s ease-out both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: none; }
+    }
+    .modal-open { overflow: hidden; }
+  </style>
+</head>
+
+<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-coral selection:text-white">
+
+  <!-- ============ NAVBAR ============ -->
+  <header id="navbar" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 lg:px-8">
+      <!-- Logo + Brand name -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <img src="assets/logo.png" alt="NALUPAWS Logo" class="h-12 w-12 rounded-full object-contain shadow-soft group-hover:scale-105 transition duration-300" />
+        <div class="flex flex-col">
+          <span class="font-display text-2xl font-bold tracking-tight text-brand-teal">
+            Nalupaw<span class="text-brand-coral">s</span>
+          </span>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-brand-teal/70 -mt-1">Accessories for Dogs & Cats</span>
+        </div>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="hidden items-center gap-8 text-sm font-semibold md:flex text-brand-teal">
+        <li><a href="#home" class="hover:text-brand-coral transition">Home</a></li>
+        <li><a href="#about" class="hover:text-brand-coral transition">About Us</a></li>
+        <li><a href="#catalog" class="hover:text-brand-coral transition">Catalog</a></li>
+        <li><a href="#contact" class="hover:text-brand-coral transition">Contact</a></li>
+      </ul>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden items-center gap-2 rounded-full bg-brand-coral px-5 py-2.5 text-sm font-bold text-white shadow-soft transition hover:bg-brand-coralHover hover:scale-[1.02] sm:inline-flex">
+          <i data-lucide="mail" class="h-4 w-4"></i> Inquire via Email
+        </a>
+        <button id="menu-toggle" class="rounded-2xl p-2 text-brand-teal hover:bg-brand-creamDark md:hidden" aria-label="Open navigation menu" aria-expanded="false">
+          <i data-lucide="menu" class="h-6 w-6"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden border-t border-brand-creamDark bg-brand-cream/95 backdrop-blur-md md:hidden shadow-lg">
+      <ul class="flex flex-col gap-1 px-5 py-4 text-base font-semibold text-brand-teal">
+        <li><a href="#home" class="mobile-link block rounded-xl px-4 py-2.5 hover:bg-brand-creamDark">Home</a></li>
+        <li><a href="#about" class="mobile-link block rounded-xl px-4 py-2.5 hover:bg-brand-creamDark">About Us</a></li>
+        <li><a href="#catalog" class="mobile-link block rounded-xl px-4 py-2.5 hover:bg-brand-creamDark">Catalog</a></li>
+        <li><a href="#contact" class="mobile-link block rounded-xl px-4 py-2.5 hover:bg-brand-creamDark">Contact</a></li>
+        <li class="pt-2">
+          <a href="#contact" class="mobile-link flex items-center justify-center gap-2 rounded-full bg-brand-coral px-5 py-3 font-bold text-white shadow-soft">
+            <i data-lucide="mail" class="h-4 w-4"></i> Inquire via Email
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="home" class="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24">
+      <div class="pointer-events-none absolute -top-20 -right-20 h-96 w-96 rounded-full bg-brand-yellow/20 blur-3xl"></div>
+      <div class="pointer-events-none absolute bottom-0 -left-20 h-80 w-80 rounded-full bg-brand-teal/15 blur-3xl"></div>
+
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-full border border-brand-teal/20 bg-white/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-teal shadow-sm">
+            <i data-lucide="award" class="h-4 w-4 text-brand-yellow"></i> 4+ Years of Dedicated Pet Care & Design
+          </span>
+
+          <h1 class="mt-6 font-display text-4xl font-bold leading-tight text-brand-teal sm:text-5xl lg:text-6xl">
+            Thoughtfully crafted accessories for <span class="text-brand-coral">dogs & cats</span>
+          </h1>
+
+          <p class="mt-5 max-w-xl text-lg leading-relaxed text-brand-dark/80">
+            For over <strong class="text-brand-teal">4 years</strong>, we have been delivering bespoke advice and curating premier pet essentials: orthopedic memory foam beds, elevated ergonomic feeders, all-weather raincoats, mobility strollers for senior dogs, and insulated outdoor houses.
+          </p>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a href="#catalog" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-teal px-7 py-3.5 font-bold text-white shadow-soft transition hover:bg-brand-tealHover hover:-translate-y-0.5">
+              <i data-lucide="layout-grid" class="h-5 w-5"></i> Explore Catalog
+            </a>
+            <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-teal bg-white/60 px-7 py-3.5 font-bold text-brand-teal transition hover:bg-brand-teal hover:text-white hover:-translate-y-0.5">
+              <i data-lucide="mail-question" class="h-5 w-5"></i> Request Sizing Advice
+            </a>
+          </div>
+
+          <!-- Trust metrics -->
+          <dl class="mt-10 grid max-w-md grid-cols-3 gap-6 pt-6 border-t border-brand-teal/15">
+            <div>
+              <dt class="text-xs font-semibold uppercase text-brand-teal/70">Experience</dt>
+              <dd class="font-display text-3xl font-bold text-brand-teal">4+ Years</dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold uppercase text-brand-teal/70">Happy Pets</dt>
+              <dd class="font-display text-3xl font-bold text-brand-coral">2,500+</dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold uppercase text-brand-teal/70">Satisfaction</dt>
+              <dd class="font-display text-3xl font-bold text-brand-yellow">4.9 ★</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Hero visual -->
+        <div class="relative mx-auto max-w-md lg:max-w-none">
+          <div class="absolute inset-0 translate-x-4 translate-y-4 rounded-3xl bg-brand-yellow/30"></div>
+          <div class="relative overflow-hidden rounded-3xl bg-white p-2 shadow-soft">
+            <img src="assets/products/hero.jpg"
+                 alt="Golden retriever and tabby cat resting together on a premium NALUPAWS bed"
+                 class="aspect-square w-full rounded-2xl object-cover" />
+          </div>
+          <!-- Floating badge -->
+          <div class="absolute -bottom-5 -left-4 flex items-center gap-3 rounded-2xl bg-white p-3.5 shadow-soft border border-brand-creamDark sm:-left-6">
+            <img src="assets/logo.png" alt="Nalupaws emblem" class="h-10 w-10 object-contain" />
+            <div>
+              <p class="text-xs font-bold text-brand-teal">Premium Standard</p>
+              <p class="text-[11px] text-brand-dark/70">Direct email consultation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT US ============ -->
+    <section id="about" class="bg-white py-20">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
+        <div class="relative grid grid-cols-2 gap-4">
+          <img src="assets/products/dog-bed.jpg" alt="Golden retriever sleeping on an orthopedic memory foam bed" class="aspect-[4/5] w-full rounded-3xl object-cover shadow-card" />
+          <img src="assets/products/cat-feeder.jpg" alt="Tabby cat beside an elevated bamboo feeder" class="mt-8 aspect-[4/5] w-full rounded-3xl object-cover shadow-card" />
+        </div>
+
+        <div>
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-brand-coral">
+            <i data-lucide="paw-print" class="h-3.5 w-3.5"></i> Our Story & Purpose
+          </span>
+          <h2 class="mt-3 font-display text-3xl font-bold text-brand-teal sm:text-4xl">
+            More than 4 years committed to pet comfort, health, and home harmony
+          </h2>
+          <p class="mt-5 text-base leading-relaxed text-brand-dark/80">
+            At <strong>NALUPAWS</strong>, we believe pet accessories should combine functional health benefits with aesthetics. We do not distribute generic retail items; each piece in our catalog is engineered to support joint health, digestive posture, and weather protection.
+          </p>
+
+          <div class="mt-8 space-y-5">
+            <div class="flex items-start gap-4 rounded-2xl bg-brand-cream p-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-teal text-white">
+                <i data-lucide="home" class="h-5 w-5"></i>
+              </span>
+              <div>
+                <h3 class="font-bold text-brand-teal">Orthopedic Comfort & Outdoor Lodging</h3>
+                <p class="text-sm text-brand-dark/75">High-density memory foam beds relieving pressure points, and insulated timber cabins engineered for seasonal weather.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 rounded-2xl bg-brand-cream p-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-yellow text-brand-dark">
+                <i data-lucide="utensils" class="h-5 w-5"></i>
+              </span>
+              <div>
+                <h3 class="font-bold text-brand-teal">Ergonomic Feeders & Digestive Health</h3>
+                <p class="text-sm text-brand-dark/75">Elevated solid bamboo stations and ceramic anti-gulping dishes protecting cervical posture.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 rounded-2xl bg-brand-cream p-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-coral text-white">
+                <i data-lucide="cloud-rain" class="h-5 w-5"></i>
+              </span>
+              <div>
+                <h3 class="font-bold text-brand-teal">All-Weather Waterproof Protection</h3>
+                <p class="text-sm text-brand-dark/75">Breathable windproof rainwear keeping coats dry and clean without restricting natural movement.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 rounded-2xl bg-brand-cream p-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-tealHover text-white">
+                <i data-lucide="heart-pulse" class="h-5 w-5"></i>
+              </span>
+              <div>
+                <h3 class="font-bold text-brand-teal">Mobility & Senior Care</h3>
+                <p class="text-sm text-brand-dark/75">Smooth-rolling strollers so senior, convalescent or less mobile dogs can keep enjoying the outdoors safely.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CATALOG ============ -->
+    <section id="catalog" class="py-20 bg-brand-cream">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-brand-coral">
+            <i data-lucide="sparkles" class="h-3.5 w-3.5"></i> Curated Collection
+          </span>
+          <h2 class="mt-2 font-display text-3xl font-bold text-brand-teal sm:text-4xl">
+            Accessories designed for their well-being
+          </h2>
+          <p class="mt-3 text-brand-dark/75">
+            Filter by pet or accessory category and email us directly for availability, dimensions, and custom guidance.
+          </p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div id="filters" class="mt-10 flex flex-wrap justify-center gap-2.5" role="tablist" aria-label="Filter catalog">
+          <button class="filter-btn active inline-flex items-center gap-2 rounded-full border border-brand-teal/20 bg-white px-5 py-2.5 text-sm font-bold text-brand-teal transition hover:border-brand-teal" data-filter="all" role="tab" aria-selected="true">
+            <i data-lucide="layout-grid" class="h-4 w-4"></i> All Products
+          </button>
+          <button class="filter-btn inline-flex items-center gap-2 rounded-full border border-brand-teal/20 bg-white px-5 py-2.5 text-sm font-bold text-brand-teal transition hover:border-brand-teal" data-filter="dogs" role="tab" aria-selected="false">
+            <i data-lucide="dog" class="h-4 w-4"></i> Dogs
+          </button>
+          <button class="filter-btn inline-flex items-center gap-2 rounded-full border border-brand-teal/20 bg-white px-5 py-2.5 text-sm font-bold text-brand-teal transition hover:border-brand-teal" data-filter="cats" role="tab" aria-selected="false">
+            <i data-lucide="cat" class="h-4 w-4"></i> Cats
+          </button>
+          <button class="filter-btn inline-flex items-center gap-2 rounded-full border border-brand-teal/20 bg-white px-5 py-2.5 text-sm font-bold text-brand-teal transition hover:border-brand-teal" data-filter="beds" role="tab" aria-selected="false">
+            <i data-lucide="bed" class="h-4 w-4"></i> Beds & Rest
+          </button>
+          <button class="filter-btn inline-flex items-center gap-2 rounded-full border border-brand-teal/20 bg-white px-5 py-2.5 text-sm font-bold text-brand-teal transition hover:border-brand-teal" data-filter="dining" role="tab" aria-selected="false">
+            <i data-lucide="utensils" class="h-4 w-4"></i> Bowls & Feeders
+          </button>
+          <button class="filter-btn inline-flex items-center gap-2 rounded-full border border-brand-teal/20 bg-white px-5 py-2.5 text-sm font-bold text-brand-teal transition hover:border-brand-teal" data-filter="outdoor" role="tab" aria-selected="false">
+            <i data-lucide="home" class="h-4 w-4"></i> Outdoor Houses
+          </button>
+          <button class="filter-btn inline-flex items-center gap-2 rounded-full border border-brand-teal/20 bg-white px-5 py-2.5 text-sm font-bold text-brand-teal transition hover:border-brand-teal" data-filter="raincoats" role="tab" aria-selected="false">
+            <i data-lucide="cloud-rain" class="h-4 w-4"></i> Raincoats
+          </button>
+          <button class="filter-btn inline-flex items-center gap-2 rounded-full border border-brand-teal/20 bg-white px-5 py-2.5 text-sm font-bold text-brand-teal transition hover:border-brand-teal" data-filter="mobility" role="tab" aria-selected="false">
+            <i data-lucide="heart-pulse" class="h-4 w-4"></i> Mobility & Senior
+          </button>
+        </div>
+
+        <!-- Product grid -->
+        <div id="product-grid" class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"></div>
+        <p id="empty-state" class="mt-12 hidden text-center font-medium text-brand-teal/60">No accessories found in this category.</p>
+      </div>
+    </section>
+
+    <!-- ============ VALUE BANNER ============ -->
+    <section class="bg-brand-teal py-12 text-white">
+      <div class="mx-auto grid max-w-7xl gap-8 px-5 text-center sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+        <div class="flex flex-col items-center gap-2">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-brand-yellow">
+            <i data-lucide="calendar" class="h-6 w-6"></i>
+          </span>
+          <p class="font-display font-bold text-lg">4+ Years of Expertise</p>
+          <p class="text-xs text-white/80">Specialized pet comfort consulting</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-brand-yellow">
+            <i data-lucide="mail-check" class="h-6 w-6"></i>
+          </span>
+          <p class="font-display font-bold text-lg">Direct Email Inquiries</p>
+          <p class="text-xs text-white/80">One-on-one tailored guidance</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-brand-yellow">
+            <i data-lucide="shield-check" class="h-6 w-6"></i>
+          </span>
+          <p class="font-display font-bold text-lg">Non-Toxic & Certified</p>
+          <p class="text-xs text-white/80">Kiln-dried wood, ceramics, memory foam</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-brand-yellow">
+            <i data-lucide="package-check" class="h-6 w-6"></i>
+          </span>
+          <p class="font-display font-bold text-lg">Secure Distribution</p>
+          <p class="text-xs text-white/80">Reliable dispatch & reinforced packaging</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="bg-white py-20">
+      <div class="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-5 lg:px-8">
+        <div class="lg:col-span-2">
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-brand-coral">
+            <i data-lucide="mail" class="h-3.5 w-3.5"></i> Orders & Consultations
+          </span>
+          <h2 class="mt-2 font-display text-3xl font-bold text-brand-teal sm:text-4xl">
+            Let's find the ideal accessory for your pet
+          </h2>
+          <p class="mt-4 text-base text-brand-dark/80">
+            We handle all inquiries, orders, and sizing questions exclusively through our official email address. Please share your pet's breed, weight, and details, and our team will respond within 24 hours.
+          </p>
+
+          <div class="mt-8 space-y-4">
+            <!-- Official email box -->
+            <a id="contact-email-link" href="mailto:purchasing@nalupaws.com" class="flex items-center gap-4 rounded-2xl border-2 border-brand-teal/20 bg-brand-cream p-5 transition hover:border-brand-teal hover:shadow-soft">
+              <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-teal text-white shadow-sm">
+                <i data-lucide="mail" class="h-7 w-7"></i>
+              </span>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-teal/70">Official Inquiries & Orders</p>
+                <p class="contact-email text-lg font-bold text-brand-teal break-all">purchasing@nalupaws.com</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4 rounded-2xl border border-brand-creamDark bg-brand-cream p-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-coral text-white">
+                <i data-lucide="clock" class="h-5 w-5"></i>
+              </span>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-teal/70">Response Time</p>
+                <p class="text-sm font-bold text-brand-teal">Monday to Friday · Within 24 hours</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 rounded-2xl border border-brand-creamDark bg-brand-cream p-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-yellow text-brand-dark">
+                <i data-lucide="info" class="h-5 w-5"></i>
+              </span>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-teal/70">Channel Notice</p>
+                <p class="text-sm font-semibold text-brand-teal">Direct email only · No automated checkout</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form id="contact-form" class="rounded-3xl border border-brand-creamDark bg-brand-cream p-8 shadow-card lg:col-span-3" novalidate>
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="name" class="mb-1.5 block text-xs font-bold uppercase tracking-wider text-brand-teal">Full Name *</label>
+              <input id="name" name="name" type="text" required class="w-full rounded-xl border border-brand-creamDark bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20" placeholder="e.g. Sarah Jenkins" />
+            </div>
+            <div>
+              <label for="email" class="mb-1.5 block text-xs font-bold uppercase tracking-wider text-brand-teal">Your Email Address *</label>
+              <input id="email" name="email" type="email" required class="w-full rounded-xl border border-brand-creamDark bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20" placeholder="sarah@example.com" />
+            </div>
+            <div>
+              <label for="pet" class="mb-1.5 block text-xs font-bold uppercase tracking-wider text-brand-teal">Pet Type</label>
+              <select id="pet" name="pet" class="w-full rounded-xl border border-brand-creamDark bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20">
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Both (Dog & Cat)">Both (Dog & Cat)</option>
+              </select>
+            </div>
+            <div>
+              <label for="accessory" class="mb-1.5 block text-xs font-bold uppercase tracking-wider text-brand-teal">Accessory of Interest</label>
+              <input id="accessory" name="accessory" type="text" class="w-full rounded-xl border border-brand-creamDark bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20" placeholder="e.g. Orthopedic Bed, Timber House..." />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="details" class="mb-1.5 block text-xs font-bold uppercase tracking-wider text-brand-teal">Pet Size, Breed & Measurements</label>
+              <input id="details" name="details" type="text" class="w-full rounded-xl border border-brand-creamDark bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20" placeholder="e.g. Golden Retriever, 32 kg, back length 65 cm" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="message" class="mb-1.5 block text-xs font-bold uppercase tracking-wider text-brand-teal">Your Message & Questions *</label>
+              <textarea id="message" name="message" rows="4" required class="w-full resize-none rounded-xl border border-brand-creamDark bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20" placeholder="Tell us how we can assist you with your order, shipping, or recommendations..."></textarea>
+            </div>
+          </div>
+
+          <p id="form-error" class="mt-4 hidden text-sm font-semibold text-brand-coral">Please complete the required fields with a valid email address.</p>
+
+          <button type="submit" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-coral px-7 py-3.5 font-bold text-white shadow-soft transition hover:bg-brand-coralHover">
+            <i data-lucide="send" class="h-4 w-4"></i> Generate Email Inquiry
+          </button>
+          <p class="mt-2.5 text-center text-xs text-brand-teal/70">Clicking will launch your preferred email client directed to <strong>purchasing@nalupaws.com</strong>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-brand-teal text-white">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div class="lg:col-span-2">
+        <a href="#home" class="flex items-center gap-3">
+          <img src="assets/logo.png" alt="NALUPAWS" class="h-12 w-12 rounded-full object-contain bg-white p-1" />
+          <div class="flex flex-col">
+            <span class="font-display text-2xl font-bold tracking-tight text-white">
+              Nalupaw<span class="text-brand-coral">s</span>
+            </span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-yellow">Accessories for Dogs & Cats</span>
+          </div>
+        </a>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed text-white/80">
+          Over 4 years of expertise curating orthopedic sleep systems, weatherproof outdoor houses, elevated dining, and protective rainwear for dogs and cats.
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a href="https://instagram.com/nalupaws" target="_blank" rel="noopener" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-brand-coral">
+            <i data-lucide="instagram" class="h-5 w-5"></i>
+          </a>
+          <a href="https://facebook.com/nalupaws" target="_blank" rel="noopener" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-brand-coral">
+            <i data-lucide="facebook" class="h-5 w-5"></i>
+          </a>
+          <a href="https://tiktok.com/@nalupaws" target="_blank" rel="noopener" aria-label="TikTok" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-brand-coral">
+            <i data-lucide="music-2" class="h-5 w-5"></i>
+          </a>
+          <a href="mailto:purchasing@nalupaws.com" aria-label="Email" class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-brand-yellow hover:text-brand-dark">
+            <i data-lucide="mail" class="h-5 w-5"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold text-lg text-white">Accessories</h4>
+        <ul class="mt-4 space-y-2 text-sm text-white/80">
+          <li><a href="#catalog" class="hover:text-brand-yellow">Orthopedic Beds</a></li>
+          <li><a href="#catalog" class="hover:text-brand-yellow">Bowls & Feeders</a></li>
+          <li><a href="#catalog" class="hover:text-brand-yellow">Outdoor Cabins</a></li>
+          <li><a href="#catalog" class="hover:text-brand-yellow">Waterproof Rainwear</a></li>
+          <li><a href="#catalog" class="hover:text-brand-yellow">Mobility Strollers</a></li>
+          <li><a href="#catalog" class="hover:text-brand-yellow">Scratching Towers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-display font-bold text-lg text-white">Direct Channel</h4>
+        <ul class="mt-4 space-y-2 text-sm text-white/80">
+          <li class="flex items-center gap-2">
+            <i data-lucide="mail" class="h-4 w-4 text-brand-yellow"></i>
+            <a href="mailto:purchasing@nalupaws.com" class="hover:text-brand-yellow">purchasing@nalupaws.com</a>
+          </li>
+          <li><a href="#about" class="hover:text-brand-yellow">About NALUPAWS</a></li>
+          <li><a href="#" class="hover:text-brand-yellow">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-brand-yellow">Terms of Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/15">
+      <p class="mx-auto max-w-7xl px-5 py-5 text-center text-xs text-white/70 lg:px-8">
+        © <span id="year"></span> NALUPAWS · Accessories for Dogs & Cats. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============ DETAIL / INQUIRY MODAL ============ -->
+  <div id="product-modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-brand-dark/70 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="relative w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl card-enter">
+      <button id="modal-close" class="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 text-brand-teal shadow hover:bg-brand-cream" aria-label="Close modal">
+        <i data-lucide="x" class="h-5 w-5"></i>
+      </button>
+
+      <img id="modal-image" src="" alt="" class="h-60 w-full object-cover" />
+
+      <div class="p-6 sm:p-7">
+        <div id="modal-tags" class="flex flex-wrap gap-2"></div>
+        <h3 id="modal-title" class="mt-3 font-display text-2xl font-bold text-brand-teal"></h3>
+        <p id="modal-desc" class="mt-2 text-sm leading-relaxed text-brand-dark/80"></p>
+
+        <div class="mt-4 rounded-2xl bg-brand-cream p-3.5 text-xs text-brand-teal flex items-center gap-2">
+          <i data-lucide="shield-check" class="h-5 w-5 shrink-0 text-brand-yellow"></i>
+          <span>Tailored consultation: share breed and sizing details for custom sizing recommendations.</span>
+        </div>
+
+        <div class="mt-6">
+          <a id="modal-mailto" href="#" class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-coral px-6 py-3.5 text-sm font-bold text-white transition hover:bg-brand-coralHover shadow-soft">
+            <i data-lucide="mail" class="h-4 w-4"></i> Inquire via Email (purchasing@nalupaws.com)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script>
+    // ---------- Contact Configuration ----------
+    const CONFIG = {
+      email: 'purchasing@nalupaws.com'
+    };
+
+    // ---------- Catalog items (product imagery stored locally in assets/products) ----------
+    const IMG = (file) => `assets/products/${file}`;
+
+    const PRODUCTS = [
+      {
+        name: 'Orthopedic Memory Foam Bolster Bed',
+        desc: 'Medical-grade viscoelastic foam that contours to your dog\'s body, relieving hip and joint pressure. Plush bolsters for head support and a water-resistant inner liner beneath a removable, machine-washable cover.',
+        categories: ['dogs', 'beds'],
+        image: IMG('dog-bed.jpg'),
+        badge: 'Bestseller'
+      },
+      {
+        name: 'All-Weather Hooded Dog Raincoat',
+        desc: 'Fully waterproof, breathable shell with a protective hood, reflective safety stripe for low-light walks and an easy fastening system. Keeps coats dry and clean in every season.',
+        categories: ['dogs', 'raincoats'],
+        image: IMG('dog-raincoat.jpg')
+      },
+      {
+        name: 'Adjustable Elevated Dog Feeder',
+        desc: 'Height-adjustable dining station with one stainless steel bowl and one slow-feeder bowl. Promotes a natural eating posture, eases neck strain and reduces gulping and bloating.',
+        categories: ['dogs', 'dining'],
+        image: IMG('dog-feeder.jpg')
+      },
+      {
+        name: 'Bamboo Triple Cat Feeder',
+        desc: 'Natural bamboo platform on a sturdy black steel frame with three removable stainless steel bowls for dry food, wet food and fresh water. Raised for whisker-friendly, comfortable dining.',
+        categories: ['cats', 'dining'],
+        image: IMG('cat-feeder.jpg'),
+        badge: 'New'
+      },
+      {
+        name: 'Mobility Stroller for Senior & Recovering Dogs',
+        desc: 'Spacious, padded cabin with breathable mesh windows, all-terrain wheels with suspension, rear brakes and a cushioned leather-look handle. Ideal for senior, convalescent or less mobile dogs who still love the outdoors.',
+        categories: ['dogs', 'mobility'],
+        image: IMG('dog-stroller.jpg'),
+        badge: 'Senior Care'
+      },
+      {
+        name: 'Self-Warming Cloud Nest for Cats',
+        desc: 'Ultra-soft plush donut bed with a raised rim that offers a sense of security and retains body heat. Non-slip base and fully machine-washable.',
+        categories: ['cats', 'beds'],
+        image: IMG('cat-bed.jpg')
+      },
+      {
+        name: 'Insulated Timber Outdoor Dog House',
+        desc: 'Treated solid-wood construction with a weatherproof pitched roof, raised floor to keep out damp and an insulated interior for year-round comfort in the garden.',
+        categories: ['dogs', 'outdoor'],
+        image: IMG('dog-house.jpg')
+      },
+      {
+        name: 'Designer Sisal Cat Tower',
+        desc: 'Multi-level tower with natural sisal scratching posts, solid oak-finish platforms and plush cushioned perches. Designed to complement modern interiors while satisfying natural instincts.',
+        categories: ['cats', 'beds'],
+        image: IMG('cat-tower.jpg')
+      }
+    ];
+
+    const TAG_MAP = {
+      dogs:      { label: 'Dogs',      icon: 'dog',         cls: 'bg-brand-coral/15 text-brand-coral' },
+      cats:      { label: 'Cats',      icon: 'cat',         cls: 'bg-brand-teal/15 text-brand-teal' },
+      beds:      { label: 'Rest',      icon: 'bed',         cls: 'bg-brand-yellow/25 text-amber-700' },
+      dining:    { label: 'Dining',    icon: 'utensils',    cls: 'bg-emerald-100 text-emerald-700' },
+      outdoor:   { label: 'Outdoor',   icon: 'home',        cls: 'bg-amber-100 text-amber-800' },
+      raincoats: { label: 'Rainwear',  icon: 'cloud-rain',  cls: 'bg-sky-100 text-sky-700' },
+      mobility:  { label: 'Mobility',  icon: 'heart-pulse', cls: 'bg-rose-100 text-rose-700' }
+    };
+
+    const escapeHtml = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    const tagsHtml = (cats) => cats.map((c) => {
+      const t = TAG_MAP[c];
+      if (!t) return '';
+      return `<span class="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-bold ${t.cls}"><i data-lucide="${t.icon}" class="h-3 w-3"></i>${t.label}</span>`;
+    }).join('');
+
+    const mailtoFor = (product) => {
+      const subject = `Product Inquiry: ${product.name} - NALUPAWS`;
+      const body = `Dear NALUPAWS Purchasing Team,\n\nI would like to inquire about the following accessory:\nProduct: ${product.name}\n\nPet Details:\n- Pet Type (Dog/Cat):\n- Breed & Approximate Weight:\n- Sizing or Destination Details:\n\nPlease provide availability, pricing, and consultation.\n\nThank you.`;
+      return `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    };
+
+    const grid = document.getElementById('product-grid');
+    const emptyState = document.getElementById('empty-state');
+
+    function renderProducts(filter = 'all') {
+      const list = filter === 'all' ? PRODUCTS : PRODUCTS.filter((p) => p.categories.includes(filter));
+      
+      grid.innerHTML = list.map((p, i) => {
+        const idx = PRODUCTS.indexOf(p);
+        return `
+        <article class="card-enter group flex flex-col overflow-hidden rounded-3xl bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-soft" style="animation-delay:${i * 50}ms">
+          <div class="relative overflow-hidden bg-brand-creamDark">
+            <img src="${p.image}" alt="${escapeHtml(p.name)}" loading="lazy" width="600" height="600"
+                 class="aspect-square w-full object-cover transition duration-500 group-hover:scale-105"
+                 onerror="this.src='https://placehold.co/600x600/fdf8ef/377180?text=NALUPAWS'" />
+            ${p.badge ? `<span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand-teal shadow-sm backdrop-blur">${escapeHtml(p.badge)}</span>` : ''}
+          </div>
+          <div class="flex flex-1 flex-col p-6">
+            <div class="flex flex-wrap gap-1.5">${tagsHtml(p.categories)}</div>
+            <h3 class="mt-3 font-display text-xl font-bold text-brand-teal group-hover:text-brand-coral transition">${escapeHtml(p.name)}</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-brand-dark/75">${escapeHtml(p.desc)}</p>
+            <button data-product="${idx}" class="consult-btn mt-5 inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-teal px-5 py-2.5 text-sm font-bold text-brand-teal transition hover:bg-brand-teal hover:text-white">
+              <i data-lucide="mail" class="h-4 w-4"></i> Inquire via Email
+            </button>
+          </div>
+        </article>`;
+      }).join('');
+
+      emptyState.classList.toggle('hidden', list.length > 0);
+      lucide.createIcons();
+    }
+
+    // Category filter events
+    document.querySelectorAll('.filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach((b) => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        renderProducts(btn.dataset.filter);
+      });
+    });
+
+    // ---------- Modal ----------
+    const modal = document.getElementById('product-modal');
+    function openModal(product) {
+      document.getElementById('modal-image').src = product.image;
+      document.getElementById('modal-image').alt = product.name;
+      document.getElementById('modal-title').textContent = product.name;
+      document.getElementById('modal-desc').textContent = product.desc;
+      document.getElementById('modal-tags').innerHTML = tagsHtml(product.categories);
+      document.getElementById('modal-mailto').href = mailtoFor(product);
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.classList.add('modal-open');
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.classList.remove('modal-open');
+    }
+
+    grid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.consult-btn');
+      if (btn) openModal(PRODUCTS[Number(btn.dataset.product)]);
+    });
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    // ---------- Contact Form (Direct Email Generator) ----------
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = e.target;
+      const data = Object.fromEntries(new FormData(f).entries());
+      const error = document.getElementById('form-error');
+      const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email || '');
+
+      if (!data.name.trim() || !validEmail || !data.message.trim()) {
+        error.classList.remove('hidden');
+        return;
+      }
+      error.classList.add('hidden');
+
+      const subject = `NALUPAWS Order/Inquiry - ${data.name.trim()}`;
+      const body = [
+        `Customer Name: ${data.name.trim()}`,
+        `Customer Email: ${data.email.trim()}`,
+        `Pet Type: ${data.pet}`,
+        `Accessory of Interest: ${data.accessory.trim() || 'General inquiry'}`,
+        `Pet Size, Breed & Details: ${data.details.trim() || 'Not specified'}`,
+        '',
+        'Message:',
+        data.message.trim()
+      ].join('\n');
+
+      window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+
+    // ---------- Navbar scroll & mobile toggle ----------
+    const navbar = document.getElementById('navbar');
+    const onScroll = () => {
+      const scrolled = window.scrollY > 20;
+      navbar.classList.toggle('bg-brand-cream/90', scrolled);
+      navbar.classList.toggle('backdrop-blur-md', scrolled);
+      navbar.classList.toggle('shadow-sm', scrolled);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden') === false;
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+    document.querySelectorAll('.mobile-link').forEach((l) => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+    // Smooth scroll with navbar offset
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (id.length < 2) return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 74, behavior: 'smooth' });
+      });
+    });
+
+    // ---------- Bind Official Contact Values ----------
+    document.querySelectorAll('.contact-email').forEach((el) => (el.textContent = CONFIG.email));
+    document.getElementById('contact-email-link').href = `mailto:${CONFIG.email}`;
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Init
+    renderProducts();
+    lucide.createIcons();
+  </script>
+</body>
+</html>

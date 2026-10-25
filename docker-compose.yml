@@ -1,0 +1,16 @@
+services:
+  nalupaws-web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    image: nalupaws-web:latest
+    container_name: nalupaws-web
+    ports:
+      - "8080:80"   # Si usas proxy inverso en la red "cicd", puedes eliminar este mapeo
+    restart: unless-stopped
+    networks:
+      - cicd
+
+networks:
+  cicd:
+    external: true
